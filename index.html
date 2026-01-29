@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The First Move</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Cormorant:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: radial-gradient(circle at top, #020617, #000);
+    overflow-x:hidden;
+    font-family: 'Cormorant', serif;
+    color:white;
+    padding:20px;
+}
+
+/* 🌈 Neon Chess Animation */
+.bg span{
+    position:absolute;
+    font-size:34px;
+    animation: float 16s linear infinite, glow 3s ease-in-out infinite alternate;
+    opacity:0.8;
+}
+
+.bg span:nth-child(1){left:5%; animation-duration:12s;}
+.bg span:nth-child(2){left:20%; animation-duration:20s;}
+.bg span:nth-child(3){left:35%; animation-duration:15s;}
+.bg span:nth-child(4){left:55%; animation-duration:22s;}
+.bg span:nth-child(5){left:70%; animation-duration:17s;}
+.bg span:nth-child(6){left:85%; animation-duration:19s;}
+
+@keyframes float{
+    0%{transform:translateY(110vh) rotate(0deg);}
+    100%{transform:translateY(-10vh) rotate(360deg);}
+}
+
+@keyframes glow{
+    0%{color:#22c55e; text-shadow:0 0 10px #22c55e;}
+    25%{color:#38bdf8; text-shadow:0 0 14px #38bdf8;}
+    50%{color:#f43f5e; text-shadow:0 0 16px #f43f5e;}
+    75%{color:#a855f7; text-shadow:0 0 18px #a855f7;}
+    100%{color:#facc15; text-shadow:0 0 20px #facc15;}
+}
+
+/* 💎 Main Card */
+.card{
+    position:relative;
+    z-index:2;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(16px);
+    border-radius: 22px;
+    padding: 28px 26px;
+    max-width: 520px;
+    width:100%;
+    text-align:center;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.6);
+    animation: fadeIn 1.2s ease;
+}
+
+h1{
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 36px);
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    color:#facc15;
+}
+
+p{
+    font-size: clamp(18px, 3.5vw, 22px);
+    line-height: 1.45;
+    white-space: pre-line;
+}
+
+.highlight{
+    color:#fb7185;
+    font-weight:600;
+    text-shadow:0 0 8px #fb7185;
+}
+
+/* 💌 Buttons */
+.buttons{
+    margin-top:22px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px;
+}
+
+button{
+    padding:10px 22px;
+    border:none;
+    border-radius:25px;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.25s;
+    background: linear-gradient(135deg,#22c55e,#4ade80);
+    color:white;
+    box-shadow:0 0 14px #22c55e;
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 22px #4ade80;
+}
+
+/* 💖 Thank You Screen */
+.thankyou{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: radial-gradient(circle at center, #020617, #000);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    z-index:10;
+}
+
+.thank-card{
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(18px);
+    border-radius: 24px;
+    padding: 34px 30px;
+    text-align:center;
+    width:100%;
+    max-width:500px;
+    color:white;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+    animation: fadeIn 1s ease;
+}
+
+.thank-card h2{
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 34px);
+    color:#facc15;
+    margin-bottom:10px;
+    text-shadow:0 0 12px #facc15;
+}
+
+.thank-card p{
+    font-size: clamp(18px, 3.5vw, 22px);
+    line-height:1.5;
+}
+
+/* ✨ Animation */
+@keyframes fadeIn{
+    from{opacity:0;transform:scale(0.9);}
+    to{opacity:1;transform:scale(1);}
+}
+</style>
+</head>
+<body>
+
+<!-- ♟️ Neon Chess Background -->
+<div class="bg">
+    <span>♟</span>
+    <span>♞</span>
+    <span>♜</span>
+    <span>♛</span>
+    <span>♚</span>
+    <span>♝</span>
+</div>
+
+<!-- 💌 Main Card -->
+<div class="card" id="mainCard">
+    <h1>♞ The First Move</h1>
+    <p>
+I’m just a little pawn,
+new to the game,
+still mixing up moves,
+still learning your name.
+
+You’re the piece
+everyone hopes they’ll get—
+smart, calm,
+<span class="highlight">my favorite threat.</span>
+
+So for the fresher’s party,
+here’s my small quest:
+one smile,
+one laugh,
+<span class="highlight">maybe one game of chess?</span>
+
+No wins or losses,
+just moments we’ll seize…
+So tell me—
+<span class="highlight">will you make the first move
+with me, Priyanshi Man ?</span>
+    </p>
+
+    <div class="buttons">
+        <button onclick="showThankYou()">Absolutely Yes ♡</button>
+        <button onclick="showThankYou()">Of Course ♞</button>
+        <button onclick="showThankYou()">I’d Love To ♡</button>
+    </div>
+</div>
+
+<!-- 💖 Thank You Card -->
+<div class="thankyou" id="thankyouScreen">
+    <div class="thank-card">
+        <h2>Thank You ♡</h2>
+        <p>
+You just made this pawn very happy ♟️✨<br>
+I promise our game of chess will be unforgettable.<br><br>
+See you at the fresher’s party 🌸
+        </p>
+    </div>
+</div>
+
+<script>
+function showThankYou(){
+    document.getElementById("mainCard").style.display="none";
+    document.getElementById("thankyouScreen").style.display="flex";
+}
+</script>
+
+</body>
+</html>
